@@ -52,6 +52,13 @@ p.back{margin:8px 0 4px;font-size:13px}
 p.back a{color:var(--muted);text-decoration:none}
 p.back a:hover{color:var(--accent)}
 hr{display:none}
+.search{display:flex;align-items:center;gap:8px;background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:0 12px;margin:8px 0 0;color:var(--muted)}
+.search:focus-within{border-color:var(--accent)}
+.search input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--fg);font:inherit;font-size:16px;padding:12px 0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sres{margin:6px 2px 0;font-size:14px;color:var(--muted)}
+mark{background:var(--accent-soft);color:var(--accent);font-weight:700;padding:0 1px;border-radius:3px}
+
 .toc{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:8px 0 4px}
 .toc-h{margin:0 0 6px;font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.04em}
 .toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 16px}
@@ -86,6 +93,12 @@ tr.star td.num a{background:var(--accent);color:var(--ink-fg)}
 <main class="wrap">
 <h2 id="top" style="scroll-margin-top:16px">한눈에 보기</h2>
 <p class="hint">분야를 누르면 그 분야의 빠른 답변으로, 질문 번호를 누르면 자세한 답변으로 이동합니다.</p>
+<div class="search" role="search">
+<label for="qsearch" class="sr">질문 검색</label>
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+<input id="qsearch" type="search" placeholder="질문 검색 (예: 배터리, 감시, 가격)" autocomplete="off" enterkeyhint="go">
+</div>
+<p class="sres" id="sres" aria-live="polite" hidden></p>
 <nav class="toc" aria-label="분야 목차"><p class="toc-h">목차</p><ol><li><a href="#g1"><span class="tn">1.</span><span class="tt">문제와 필요성</span><span class="tc">Q1–Q6</span></a></li><li><a href="#g2"><span class="tn">2.</span><span class="tt">기술</span><span class="tc">Q7–Q15</span></a></li><li><a href="#g3"><span class="tn">3.</span><span class="tt">윤리·프라이버시</span><span class="tc">Q16–Q22</span></a></li><li><a href="#g4"><span class="tn">4.</span><span class="tt">사업성·운영</span><span class="tc">Q23–Q27</span></a></li><li><a href="#g5"><span class="tn">5.</span><span class="tt">목표 수치</span><span class="tc">Q28</span></a></li><li><a href="#g6"><span class="tn">6.</span><span class="tt">까다로운 질문</span><span class="tc">Q29–Q32</span></a></li></ol></nav>
 <h3 class="grp" id="g1">문제와 필요성</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr><td class="num"><a href="#q1">Q1</a></td><td>이미 휴식이 법으로 의무화됐는데 왜 필요한가요?<span class="ans-m">법은 모두에게 같은 기준, 우리는 그 위에 개인별 휴식을 더한다</span></td><td class="ans">법은 모두에게 같은 기준, 우리는 그 위에 개인별 휴식을 더한다</td></tr><tr><td class="num"><a href="#q2">Q2</a></td><td>왜 하필 야외 노동자인가요?<span class="ans-m">환자의 45.4%가 실외 작업장·논밭, 더워도 마음대로 못 쉰다</span></td><td class="ans">환자의 45.4%가 실외 작업장·논밭, 더워도 마음대로 못 쉰다</td></tr><tr><td class="num"><a href="#q3">Q3</a></td><td>택배·배달 노동자는 왜 따로 언급했나요?<span class="ans-m">특수고용이라 휴식 의무 규정 밖, 혼자 판단해야 한다</span></td><td class="ans">특수고용이라 휴식 의무 규정 밖, 혼자 판단해야 한다</td></tr><tr><td class="num"><a href="#q4">Q4</a></td><td>물 마시고 그늘에서 쉬면 되지 않나요?<span class="ans-m">맞다, 그래서 "기술보다 그늘이 먼저" 원칙. 문제는 쉴 때를 놓치는 것</span></td><td class="ans">맞다, 그래서 "기술보다 그늘이 먼저" 원칙. 문제는 쉴 때를 놓치는 것</td></tr><tr class="new"><td class="num"><a href="#q5">Q5</a></td><td><span class="tag new sm">추가</span> 날씨 앱이나 폭염 특보 문자로 충분하지 않나요?<span class="ans-m">특보는 지역 단위, 위험은 사람 단위</span></td><td class="ans">특보는 지역 단위, 위험은 사람 단위</td></tr><tr class="new"><td class="num"><a href="#q6">Q6</a></td><td><span class="tag new sm">추가</span> 왜 하필 2045년인가요? 더 가까운 미래로도 가능하지 않나요?<span class="ans-m">센서는 있지만 정확도·제도·쉼터망이 갖춰지는 데 시간이 필요</span></td><td class="ans">센서는 있지만 정확도·제도·쉼터망이 갖춰지는 데 시간이 필요</td></tr></tbody></table></div><h3 class="grp" id="g2">기술</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr class="star"><td class="num"><a href="#q7">Q7</a></td><td><strong>지금 기술로도 구현할 수 있지 않나요?</strong> (실제 받은 질문)<span class="ans-m">센서는 있다. 정확도·신뢰·인프라 세 가지가 아직 안 됐다</span></td><td class="ans">센서는 있다. 정확도·신뢰·인프라 세 가지가 아직 안 됐다</td></tr><tr><td class="num"><a href="#q8">Q8</a></td><td>이런 웨어러블은 이미 있지 않나요? 무엇이 새롭나요?<span class="ans-m">새로움은 센서가 아니라 설계</span></td><td class="ans">새로움은 센서가 아니라 설계</td></tr><tr><td class="num"><a href="#q9">Q9</a></td><td>체온 예측이 틀리면요?<span class="ans-m">기계는 휴식을 더할 수만 있고 막을 수는 없다</span></td><td class="ans">기계는 휴식을 더할 수만 있고 막을 수는 없다</td></tr><tr><td class="num"><a href="#q10">Q10</a></td><td>위험 15분 전 예측은 어떻게 가능한가요?<span class="ans-m">체온 상승 추세로 위험선까지 남은 시간을 계산</span></td><td class="ans">체온 상승 추세로 위험선까지 남은 시간을 계산</td></tr><tr><td class="num"><a href="#q11">Q11</a></td><td>착용 불편, 배터리는요?<span class="ans-m">이미 쓰는 안전모·팔찌에 넣고, 온디바이스 처리로 통신 절약</span></td><td class="ans">이미 쓰는 안전모·팔찌에 넣고, 온디바이스 처리로 통신 절약</td></tr><tr class="new"><td class="num"><a href="#q12">Q12</a></td><td><span class="tag new sm">추가</span> 스마트워치(애플워치·갤럭시워치)로 충분하지 않나요?<span class="ans-m">일상 건강용과 달리, 현장 환경까지 함께 보고 작업 장비에 들어간다</span></td><td class="ans">일상 건강용과 달리, 현장 환경까지 함께 보고 작업 장비에 들어간다</td></tr><tr class="new"><td class="num"><a href="#q13">Q13</a></td><td><span class="tag new sm">추가</span> 알림이 너무 자주 울리면 결국 무시하게 되지 않나요?<span class="ans-m">단계별 알림 + 개인 기준 학습으로 헛경보를 줄인다</span></td><td class="ans">단계별 알림 + 개인 기준 학습으로 헛경보를 줄인다</td></tr><tr class="new"><td class="num"><a href="#q14">Q14</a></td><td><span class="tag new sm">추가</span> 통신이 안 되는 산간·지하 현장에서도 작동하나요?<span class="ans-m">예측은 기기 안에서 하므로 통신 없이도 알림 가능</span></td><td class="ans">예측은 기기 안에서 하므로 통신 없이도 알림 가능</td></tr><tr class="new"><td class="num"><a href="#q15">Q15</a></td><td><span class="tag new sm">추가</span> 스마트폰에 익숙하지 않은 고령 노동자나 외국인 노동자도 쓸 수 있나요?<span class="ans-m">화면 조작 없이 진동·음성·색 신호, 음성은 여러 언어로</span></td><td class="ans">화면 조작 없이 진동·음성·색 신호, 음성은 여러 언어로</td></tr></tbody></table></div><h3 class="grp" id="g3">윤리·프라이버시</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr><td class="num"><a href="#q16">Q16</a></td><td>결국 감시 도구가 되지 않나요?<span class="ans-m">원본 데이터는 기기 안에, 관리자는 신호 색만, 24시간 삭제</span></td><td class="ans">원본 데이터는 기기 안에, 관리자는 신호 색만, 24시간 삭제</td></tr><tr><td class="num"><a href="#q17">Q17</a></td><td>"심박 정상이니 다시 일해"로 악용하면요?<span class="ans-m">"일해도 된다"는 신호 자체를 만들지 않는다</span></td><td class="ans">"일해도 된다"는 신호 자체를 만들지 않는다</td></tr><tr><td class="num"><a href="#q18">Q18</a></td><td>착용을 거부하면요? 강제인가요?<span class="ans-m">선택이다. 강제하는 순간 감시 장치가 된다</span></td><td class="ans">선택이다. 강제하는 순간 감시 장치가 된다</td></tr><tr><td class="num"><a href="#q19">Q19</a></td><td>휴식 많은 사람이 인사 불이익을 받지 않을까요?<span class="ans-m">기록을 지우고, 평가에 쓰지 않는 약관을 기본값으로</span></td><td class="ans">기록을 지우고, 평가에 쓰지 않는 약관을 기본값으로</td></tr><tr><td class="num"><a href="#q20">Q20</a></td><td>플랫폼이 배차 알고리즘에 쓰면요?<span class="ans-m">남은 위험으로 인정. 데이터 주인은 노동자 본인</span></td><td class="ans">남은 위험으로 인정. 데이터 주인은 노동자 본인</td></tr><tr class="new"><td class="num"><a href="#q21">Q21</a></td><td><span class="tag new sm">추가</span> 건강 정보를 다루는데 법적으로 문제는 없나요?<span class="ans-m">건강 정보는 민감정보라, 회사가 아예 수집·보관하지 않는 구조로</span></td><td class="ans">건강 정보는 민감정보라, 회사가 아예 수집·보관하지 않는 구조로</td></tr><tr class="new"><td class="num"><a href="#q22">Q22</a></td><td><span class="tag new sm">추가</span> 기기가 경고를 못 해서 사고가 나면 누구 책임인가요?<span class="ans-m">히트 쉴드는 보조 장치, 사업주의 안전 의무는 그대로</span></td><td class="ans">히트 쉴드는 보조 장치, 사업주의 안전 의무는 그대로</td></tr></tbody></table></div><h3 class="grp" id="g4">사업성·운영</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr><td class="num"><a href="#q23">Q23</a></td><td>누가 돈을 내나요?<span class="ans-m">건설은 사업주, 플랫폼 노동자는 지자체·노조 보급</span></td><td class="ans">건설은 사업주, 플랫폼 노동자는 지자체·노조 보급</td></tr><tr><td class="num"><a href="#q24">Q24</a></td><td>데이터도 못 보는데 사업주가 왜 도입하나요?<span class="ans-m">필요한 건 건강 정보가 아니라 교대 시점</span></td><td class="ans">필요한 건 건강 정보가 아니라 교대 시점</td></tr><tr><td class="num"><a href="#q25">Q25</a></td><td>쿨링 쉼터는 누가 만드나요?<span class="ans-m">기존 쉼터를 잇는 지도 역할, 부족한 곳은 지자체에 알림</span></td><td class="ans">기존 쉼터를 잇는 지도 역할, 부족한 곳은 지자체에 알림</td></tr><tr class="new"><td class="num"><a href="#q26">Q26</a></td><td><span class="tag new sm">추가</span> 기기 한 대 가격은 얼마나 되나요?<span class="ans-m">아직 정하지 않음. 기존 장비에 센서를 더해 비용을 낮추는 방향</span></td><td class="ans">아직 정하지 않음. 기존 장비에 센서를 더해 비용을 낮추는 방향</td></tr><tr class="new"><td class="num"><a href="#q27">Q27</a></td><td><span class="tag new sm">추가</span> 가장 먼저 무엇부터 검증할 건가요?<span class="ans-m">한 현장에서 여름 한 철 시범 운영, 세 가지 지표 확인</span></td><td class="ans">한 현장에서 여름 한 철 시범 운영, 세 가지 지표 확인</td></tr></tbody></table></div><h3 class="grp" id="g5">목표 수치</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr><td class="num"><a href="#q28">Q28</a></td><td>50%, 90%, 5분 같은 숫자의 근거는요?<span class="ans-m">팀 목표치(가설)임을 먼저 밝히고 논리 설명</span></td><td class="ans">팀 목표치(가설)임을 먼저 밝히고 논리 설명</td></tr></tbody></table></div><h3 class="grp" id="g6">까다로운 질문</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr><td class="num"><a href="#q29">Q29</a></td><td>20년 뒤에도 폭염이 문제일까요?<span class="ans-m">더 커질 가능성이 높다 (2025년 환자 20.4% 증가)</span></td><td class="ans">더 커질 가능성이 높다 (2025년 환자 20.4% 증가)</td></tr><tr><td class="num"><a href="#q30">Q30</a></td><td>이 아이디어의 가장 큰 약점은?<span class="ans-m">현장 정확도. 그래서 휴식을 막는 기능을 아예 뺐다</span></td><td class="ans">현장 정확도. 그래서 휴식을 막는 기능을 아예 뺐다</td></tr><tr><td class="num"><a href="#q31">Q31</a></td><td>기술 대신 법과 제도를 바꾸면 되지 않나요?<span class="ans-m">둘 다 필요. 법은 최소 기준, 기술은 개인별 위험</span></td><td class="ans">둘 다 필요. 법은 최소 기준, 기술은 개인별 위험</td></tr><tr class="new"><td class="num"><a href="#q32">Q32</a></td><td><span class="tag new sm">추가</span> 여름에만 쓰는 기기라면 나머지 계절에는 쓸모가 없지 않나요?<span class="ans-m">같은 센서로 한파·피로·심박 이상 감지까지 확장 가능</span></td><td class="ans">같은 센서로 한파·피로·심박 이상 감지까지 확장 가능</td></tr></tbody></table></div>
 <h2>답변 원칙</h2>
@@ -393,5 +406,41 @@ tr.star td.num a{background:var(--accent);color:var(--ink-fg)}
 <li><a href="https://abcnews.go.com/Health/wireStory/sensors-read-sweat-predict-overheating-privacy-advocates-care-113119851" target="_blank" rel="noopener">AP, Sensors can read your sweat and predict overheating</a></li>
 </ul>
 </main>
+<script>
+(function(){
+  var input=document.getElementById('qsearch'), res=document.getElementById('sres'), toc=document.querySelector('.toc');
+  var groups=[].slice.call(document.querySelectorAll('h3.grp'));
+  var rows=[].slice.call(document.querySelectorAll('table.sum tbody tr'));
+  // index: summary text + full answer text for each question
+  var data=rows.map(function(tr){
+    var a=tr.querySelector('td.num a'), id=a.getAttribute('href').slice(1);
+    var anchor=document.getElementById(id), txt='';
+    if(anchor&&anchor.parentElement.tagName==='P')anchor=anchor.parentElement;
+    for(var n=anchor&&anchor.nextElementSibling;n&&!(n.tagName==='P'&&n.classList.contains('back'));n=n.nextElementSibling){txt+=' '+n.textContent;}
+    var qcell=tr.children[1];
+    return {tr:tr,a:a,qcell:qcell,orig:qcell.innerHTML,hay:(tr.textContent+' '+txt).toLowerCase()};
+  });
+  function esc(t){return t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+  function run(){
+    var q=input.value.trim().toLowerCase(), terms=q.split(/\s+/).filter(Boolean), shown=0, first=null;
+    data.forEach(function(d){
+      d.qcell.innerHTML=d.orig;
+      var ok=terms.every(function(t){return d.hay.indexOf(t)>-1;});
+      d.tr.hidden=!ok;
+      if(ok){shown++; if(!first)first=d;
+        if(terms.length){var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+          d.qcell.childNodes.forEach(function(n){if(n.nodeType===3){var s=document.createElement('span');s.innerHTML=n.textContent.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}).replace(re,'<mark>$1</mark>');n.replaceWith(s);}});}
+      }
+    });
+    groups.forEach(function(g){var tb=g.nextElementSibling.querySelectorAll('tbody tr:not([hidden])').length;g.hidden=!tb;g.nextElementSibling.hidden=!tb;});
+    toc.hidden=!!terms.length;
+    if(terms.length){res.hidden=false;res.textContent=shown?('"'+input.value.trim()+'" 검색 결과 '+shown+'개 · 번호를 누르면 자세한 답변으로 이동해요'):'"'+input.value.trim()+'"에 맞는 질문이 없어요. 다른 단어로 찾아보세요.';}
+    else{res.hidden=true;}
+    return first;
+  }
+  input.addEventListener('input',run);
+  input.addEventListener('keydown',function(e){if(e.key==='Enter'){var f=run();if(f){input.blur();location.hash=f.a.getAttribute('href');}}});
+})();
+</script>
 </body>
 </html>
