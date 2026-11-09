@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>히트 쉴드 예상 질문</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap">
+<style>
+/* Layout: one reading column; summary tables up top, answers below, anchors jump between them */
+:root{--bg:#F4F6F8;--surface:#FFFFFF;--fg:#132A3E;--muted:#55687A;--line:#DCE3EA;--accent:#C2410C;--accent-soft:#FDF0E8;--ink:#10263A;--ink-fg:#FFFFFF;
+--f-body:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0E1A26;--surface:#15263A;--fg:#E6EDF3;--muted:#9FB0C0;--line:#2A3F55;--accent:#FF8A4C;--accent-soft:#33241C;--ink:#0A1520;--ink-fg:#E6EDF3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1A26;--surface:#15263A;--fg:#E6EDF3;--muted:#9FB0C0;--line:#2A3F55;--accent:#FF8A4C;--accent-soft:#33241C;--ink:#0A1520;--ink-fg:#E6EDF3;color-scheme:dark}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:anywhere}
+.top{background:var(--ink);color:var(--ink-fg);padding-block:36px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top .in,.wrap{max-width:780px;margin:0 auto}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;color:#FF8A4C;margin:0}
+.top h1{font-size:clamp(26px,5vw,34px);line-height:1.3;margin:6px 0 8px;text-wrap:balance;font-weight:900}
+.top p.sub{margin:0;color:#C9D4DE;font-size:15px}
+.wrap{padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:8px}
+h2{font-size:22px;font-weight:900;margin:32px 0 6px;padding-top:16px;border-top:2px solid var(--fg);text-wrap:balance}
+h2:first-child{margin-top:0}
+h3.grp{font-size:15px;font-weight:700;color:var(--accent);margin:18px 0 6px;letter-spacing:.02em}
+.hint{font-size:14px;color:var(--muted);margin:0}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--surface)}
+th,td{border-bottom:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{font-size:13px;color:var(--muted);font-weight:700;white-space:nowrap;background:var(--surface)}
+table.sum{table-layout:fixed;min-width:560px}
+col.c1{width:68px}col.c2{width:48%}
+td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
+td.num a{display:inline-block;font-weight:900;color:var(--accent);text-decoration:none;padding:2px 8px;border-radius:6px;background:var(--accent-soft)}
+td.num a:hover,td.num a:focus-visible{text-decoration:underline}
+td.ans{color:var(--muted)}
+tr.star td{background:var(--accent-soft)}
+h3.q{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:18px;line-height:1.5;margin:22px 0 4px;scroll-margin-top:16px}
+.qn{flex:0 0 auto;font-size:14px;font-weight:900;color:var(--ink-fg);background:var(--ink);padding:1px 8px;border-radius:6px}
+.tag{font-size:12px;font-weight:700;color:var(--ink-fg);background:var(--accent);padding:1px 8px;border-radius:999px}
+:target + h3.q .qn{background:var(--accent)}
+p{margin:6px 0}
+blockquote{margin:8px 0;padding:10px 14px;background:var(--accent-soft);border-radius:8px}
+blockquote p{margin:4px 0}
+ul,ol{margin:6px 0;padding-left:22px}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+p.back{margin:8px 0 4px;font-size:13px}
+p.back a{color:var(--muted);text-decoration:none}
+p.back a:hover{color:var(--accent)}
+hr{display:none}
+.ans-m{display:none}
+tr.star td.num a{background:var(--accent);color:var(--ink-fg)}
+@media (max-width:600px){
+ table.sum{table-layout:auto;min-width:0}
+ table.sum col.c3,table.sum td.ans,table.sum th:nth-child(3){display:none}
+ table.sum col.c2{width:auto}
+ .ans-m{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
+ td.num{width:56px;padding-right:4px}
+}
+
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+<p class="eyebrow">HEAT SHIELD · 3조 발표 준비</p>
+<h1>히트 쉴드 예상 질문과 답변</h1>
+<p class="sub">2045년, 폭염 속 야외 노동자의 쉴 권리를 지키는 AI 열 보호막</p>
+</div></header>
+<main class="wrap">
+<h2 id="top" style="scroll-margin-top:16px">한눈에 보기</h2>
+<p class="hint">질문 번호를 누르면 답변으로 이동하고, 답변 아래 ↑ 목록으로를 누르면 이 표로 돌아옵니다.</p>
+<h3 class="grp">문제와 필요성</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr><td class="num"><a href="#q1">Q1</a></td><td>이미 휴식이 법으로 의무화됐는데 왜 필요한가요?<span class="ans-m">법은 모두에게 같은 기준, 우리는 그 위에 개인별 휴식을 더한다</span></td><td class="ans">법은 모두에게 같은 기준, 우리는 그 위에 개인별 휴식을 더한다</td></tr><tr><td class="num"><a href="#q2">Q2</a></td><td>왜 하필 야외 노동자인가요?<span class="ans-m">환자의 45.4%가 실외 작업장·논밭, 더워도 마음대로 못 쉰다</span></td><td class="ans">환자의 45.4%가 실외 작업장·논밭, 더워도 마음대로 못 쉰다</td></tr><tr><td class="num"><a href="#q3">Q3</a></td><td>택배·배달 노동자는 왜 따로 언급했나요?<span class="ans-m">특수고용이라 휴식 의무 규정 밖, 혼자 판단해야 한다</span></td><td class="ans">특수고용이라 휴식 의무 규정 밖, 혼자 판단해야 한다</td></tr><tr><td class="num"><a href="#q4">Q4</a></td><td>물 마시고 그늘에서 쉬면 되지 않나요?<span class="ans-m">맞다, 그래서 "기술보다 그늘이 먼저" 원칙. 문제는 쉴 때를 놓치는 것</span></td><td class="ans">맞다, 그래서 "기술보다 그늘이 먼저" 원칙. 문제는 쉴 때를 놓치는 것</td></tr></tbody></table></div><h3 class="grp">기술</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr class="star"><td class="num"><a href="#q5">Q5</a></td><td><strong>지금 기술로도 구현할 수 있지 않나요?</strong> (실제 받은 질문)<span class="ans-m">센서는 있다. 정확도·신뢰·인프라 세 가지가 아직 안 됐다</span></td><td class="ans">센서는 있다. 정확도·신뢰·인프라 세 가지가 아직 안 됐다</td></tr><tr><td class="num"><a href="#q6">Q6</a></td><td>이런 웨어러블은 이미 있지 않나요? 무엇이 새롭나요?<span class="ans-m">새로움은 센서가 아니라 설계</span></td><td class="ans">새로움은 센서가 아니라 설계</td></tr><tr><td class="num"><a href="#q7">Q7</a></td><td>체온 예측이 틀리면요?<span class="ans-m">기계는 휴식을 더할 수만 있고 막을 수는 없다</span></td><td class="ans">기계는 휴식을 더할 수만 있고 막을 수는 없다</td></tr><tr><td class="num"><a href="#q8">Q8</a></td><td>위험 15분 전 예측은 어떻게 가능한가요?<span class="ans-m">체온 상승 추세로 위험선까지 남은 시간을 계산</span></td><td class="ans">체온 상승 추세로 위험선까지 남은 시간을 계산</td></tr><tr><td class="num"><a href="#q9">Q9</a></td><td>착용 불편, 배터리는요?<span class="ans-m">이미 쓰는 안전모·팔찌에 넣고, 온디바이스 처리로 통신 절약</span></td><td class="ans">이미 쓰는 안전모·팔찌에 넣고, 온디바이스 처리로 통신 절약</td></tr></tbody></table></div><h3 class="grp">윤리·프라이버시</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr><td class="num"><a href="#q10">Q10</a></td><td>결국 감시 도구가 되지 않나요?<span class="ans-m">원본 데이터는 기기 안에, 관리자는 신호 색만, 24시간 삭제</span></td><td class="ans">원본 데이터는 기기 안에, 관리자는 신호 색만, 24시간 삭제</td></tr><tr><td class="num"><a href="#q11">Q11</a></td><td>"심박 정상이니 다시 일해"로 악용하면요?<span class="ans-m">"일해도 된다"는 신호 자체를 만들지 않는다</span></td><td class="ans">"일해도 된다"는 신호 자체를 만들지 않는다</td></tr><tr><td class="num"><a href="#q12">Q12</a></td><td>착용을 거부하면요? 강제인가요?<span class="ans-m">선택이다. 강제하는 순간 감시 장치가 된다</span></td><td class="ans">선택이다. 강제하는 순간 감시 장치가 된다</td></tr><tr><td class="num"><a href="#q13">Q13</a></td><td>휴식 많은 사람이 인사 불이익을 받지 않을까요?<span class="ans-m">기록을 지우고, 평가에 쓰지 않는 약관을 기본값으로</span></td><td class="ans">기록을 지우고, 평가에 쓰지 않는 약관을 기본값으로</td></tr><tr><td class="num"><a href="#q14">Q14</a></td><td>플랫폼이 배차 알고리즘에 쓰면요?<span class="ans-m">남은 위험으로 인정. 데이터 주인은 노동자 본인</span></td><td class="ans">남은 위험으로 인정. 데이터 주인은 노동자 본인</td></tr></tbody></table></div><h3 class="grp">사업성·운영</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr><td class="num"><a href="#q15">Q15</a></td><td>누가 돈을 내나요?<span class="ans-m">건설은 사업주, 플랫폼 노동자는 지자체·노조 보급</span></td><td class="ans">건설은 사업주, 플랫폼 노동자는 지자체·노조 보급</td></tr><tr><td class="num"><a href="#q16">Q16</a></td><td>데이터도 못 보는데 사업주가 왜 도입하나요?<span class="ans-m">필요한 건 건강 정보가 아니라 교대 시점</span></td><td class="ans">필요한 건 건강 정보가 아니라 교대 시점</td></tr><tr><td class="num"><a href="#q17">Q17</a></td><td>쿨링 쉼터는 누가 만드나요?<span class="ans-m">기존 쉼터를 잇는 지도 역할, 부족한 곳은 지자체에 알림</span></td><td class="ans">기존 쉼터를 잇는 지도 역할, 부족한 곳은 지자체에 알림</td></tr></tbody></table></div><h3 class="grp">목표 수치</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr><td class="num"><a href="#q18">Q18</a></td><td>50%, 90%, 5분 같은 숫자의 근거는요?<span class="ans-m">팀 목표치(가설)임을 먼저 밝히고 논리 설명</span></td><td class="ans">팀 목표치(가설)임을 먼저 밝히고 논리 설명</td></tr></tbody></table></div><h3 class="grp">까다로운 질문</h3><div class="tw"><table class="sum"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr><th>번호</th><th>질문</th><th>한 줄 답</th></tr></thead><tbody><tr><td class="num"><a href="#q19">Q19</a></td><td>20년 뒤에도 폭염이 문제일까요?<span class="ans-m">더 커질 가능성이 높다 (2025년 환자 20.4% 증가)</span></td><td class="ans">더 커질 가능성이 높다 (2025년 환자 20.4% 증가)</td></tr><tr><td class="num"><a href="#q20">Q20</a></td><td>이 아이디어의 가장 큰 약점은?<span class="ans-m">현장 정확도. 그래서 휴식을 막는 기능을 아예 뺐다</span></td><td class="ans">현장 정확도. 그래서 휴식을 막는 기능을 아예 뺐다</td></tr><tr><td class="num"><a href="#q21">Q21</a></td><td>기술 대신 법과 제도를 바꾸면 되지 않나요?<span class="ans-m">둘 다 필요. 법은 최소 기준, 기술은 개인별 위험</span></td><td class="ans">둘 다 필요. 법은 최소 기준, 기술은 개인별 위험</td></tr></tbody></table></div>
+<h2>답변 원칙</h2>
+<p>모든 답변은 <strong>30초 안에, 결론부터</strong> 말합니다. 질문이 약점을 찌르면 인정하고 우리 설계로 답하는 게 가장 강한 답변입니다.</p>
+<ol>
+<li><strong>결론 한 문장</strong>: "네, 그 부분이 가장 큰 고민이었습니다."</li>
+<li><strong>근거 한두 개</strong>: 포스터의 숫자나 원칙을 손으로 가리키며 설명</li>
+<li>
+<p><strong>마무리 한 문장</strong>: "그래서 저희는 ~하도록 설계했습니다."</p>
+</li>
+<li>
+<p>사실(통계, 법 규정)과 가설(2045 목표치)을 구분해서 말합니다.</p>
+</li>
+<li>답을 모르면 지어내지 말고, 모른다고 한 뒤 어떻게 확인할지 말합니다.</li>
+<li>질문 담당을 미리 나눠 두면 좋습니다: 문제·통계 담당, 기술 담당, 윤리·운영 담당.</li>
+</ol>
+<hr />
+<h2>1. 문제와 필요성</h2>
+<p><a id="q1"></a></p>
+<h3 class="q"><span class="qn">Q1</span><span>이미 폭염 시 휴식이 법으로 의무화됐는데, 이 서비스가 왜 필요한가요?</span></h3>
+<p>법은 "체감 33℃ 이상이면 2시간마다 20분"처럼 모두에게 같은 기준을 적용합니다. 하지만 같은 더위에도 60대와 20대, 무거운 짐을 드는 사람과 감독하는 사람의 위험 시점은 다릅니다. 실제로 2025년 추정 사망자 29명 중 62.1%가 60세 이상이었습니다.</p>
+<blockquote>
+<p><strong>포인트</strong>: 히트 쉴드는 법정 휴식을 대체하는 게 아니라, 그 위에 개인별 휴식을 <strong>더하는</strong> 장치입니다.</p>
+</blockquote>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q2"></a></p>
+<h3 class="q"><span class="qn">Q2</span><span>왜 하필 야외 노동자인가요? 폭염은 모두의 문제인데요.</span></h3>
+<p>최근 10년 온열질환자의 <strong>45.4%</strong>가 실외 작업장과 논밭에서 발생했습니다. 이들은 더워도 마음대로 쉴 수 없다는 점에서 일반 시민과 다릅니다. 다만 포스터 3번처럼 독거 어르신, 야외 행사 등으로 확장할 수 있습니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q3"></a></p>
+<h3 class="q"><span class="qn">Q3</span><span>택배·배달 노동자도 대상이라고 했는데, 이들은 왜 따로 언급했나요?</span></h3>
+<p>특수고용 노동자는 근로기준이 적용되지 않아 휴식 의무 규정의 보호를 받기 어렵다는 지적이 있습니다. 관리자가 없는 대신 혼자 판단해야 하므로, 본인이 직접 쓰는 히트 쉴드가 가장 필요한 사람들입니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q4"></a></p>
+<h3 class="q"><span class="qn">Q4</span><span>물 마시고 그늘에서 쉬면 되는 것 아닌가요? 굳이 기술이 필요한가요?</span></h3>
+<p>맞습니다. 그래서 저희는 <strong>"기술보다 그늘이 먼저"</strong>라는 원칙을 세웠습니다. 문제는 일에 몰두하면 위험 신호를 늦게 알아차린다는 점입니다. 히트 쉴드는 쉬어야 할 때를 알려 주고 가장 가까운 쉼터까지 안내하는 역할입니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<hr />
+<h2>2. 기술</h2>
+<p><a id="q5"></a></p>
+<h3 class="q"><span class="qn">Q5</span><span>이런 기술은 지금의 기술력으로도 구현할 수 있지 않나요?</span><span class="tag">실제 받은 질문</span></h3>
+<blockquote>
+<p>발표에서 실제로 받은 질문입니다. 전시 때 다시 나올 가능성이 높습니다.</p>
+</blockquote>
+<p><strong>인정하고 시작합니다.</strong> 체온을 추정하는 팔찌형 웨어러블은 미국 일부 현장에서 이미 쓰이고 있어서, "아직 없는 기술"이라고 하면 바로 반박당합니다. 핵심은 <strong>센서는 지금도 있지만, 우리가 그린 서비스는 아직 안 된다</strong>는 것을 구분하는 것입니다.</p>
+<p><strong>30초 답변</strong></p>
+<blockquote>
+<p>네, 맞습니다. 체온을 추정하는 웨어러블은 지금도 일부 현장에서 쓰이고 있습니다. 하지만 세 가지가 아직 해결되지 않았습니다.</p>
+<p><strong>첫째, 정확도입니다.</strong> 실험실에서는 잘 맞지만 실제 현장에서는 나이·습도에 따라 크게 흔들립니다.</p>
+<p><strong>둘째, 신뢰입니다.</strong> 지금 제품은 관리자가 데이터를 보는 구조라 노동자들이 감시라고 느끼고 착용을 꺼립니다.</p>
+<p><strong>셋째, 인프라입니다.</strong> 알림을 받아도 도보 5분 안에 쉴 곳이 없으면 소용이 없습니다.</p>
+<p>그래서 저희가 그린 2045년은 센서가 생기는 미래가 아니라, 이 세 가지가 해결돼서 누구나 믿고 쓰는 미래입니다.</p>
+</blockquote>
+<p><strong>포스터에서 짚을 곳</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>포스터</th>
+<th>보여 주는 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4번 기술적 이슈</td>
+<td>"왜 아직 안 됐는가" — 정확도, 감시 악용, 건강정보, 착용성·인프라</td>
+</tr>
+<tr>
+<td>6번 TO BE 수치</td>
+<td>"무엇이 더 필요한가" — 정확도 90%, 외부 전송 0건, 도보 5분 쉼터</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>한 걸음 더 (긍정적으로 돌리기)</strong></p>
+<blockquote>
+<p>오히려 기술의 씨앗이 이미 있다는 점이 이 기획이 공상이 아니라는 근거라고 생각합니다. 지금은 시범 현장에서 정확도를 검증하고, 다음으로 데이터 원칙을 제도로 만들고, 마지막으로 쉼터망을 넓히는 순서로 2045년에 닿을 수 있다고 봅니다.</p>
+</blockquote>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q6"></a></p>
+<h3 class="q"><span class="qn">Q6</span><span>이미 이런 웨어러블이 있지 않나요? 무엇이 새로운가요?</span></h3>
+<p>네, 미국 일부 현장에서는 체온을 추정하는 팔찌를 이미 쓰고 있습니다. 하지만 지금 제품은 관리자가 데이터를 보는 구조라 감시 논란이 있습니다.</p>
+<blockquote>
+<p><strong>포인트</strong>: 저희의 새로움은 센서가 아니라 <strong>설계</strong>입니다. 데이터는 기기 안에서만 처리하고, 휴식은 더할 수만 있게 만들고, 쉼터 안내까지 연결합니다.</p>
+</blockquote>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q7"></a></p>
+<h3 class="q"><span class="qn">Q7</span><span>체온 예측이 틀리면 어떻게 하나요?</span></h3>
+<p>가장 중요한 기술적 한계입니다. 현재 기술은 실험실에서는 잘 맞지만 실제 현장에서는 나이, 성별, 습도 때문에 정확도가 떨어진다는 연구가 있습니다. 그래서 히트 쉴드는 기계가 "괜찮다"고 해도 본인이 쉬고 싶으면 언제든 쉴 수 있게 설계했습니다.</p>
+<blockquote>
+<p><strong>포인트</strong>: 기계는 휴식을 <strong>더 권할 수만 있고, 막을 수는 없습니다.</strong></p>
+</blockquote>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q8"></a></p>
+<h3 class="q"><span class="qn">Q8</span><span>위험 15분 전 예측은 어떻게 가능한가요?</span></h3>
+<p>심박 수, 피부 온도, 땀 성분, 주변 온습도를 계속 측정하면 체온이 오르는 추세를 볼 수 있습니다. 추세가 위험 기준선에 닿기까지 남은 시간을 계산하는 방식입니다. 15분은 쉼터까지 걸어갈 시간을 고려한 팀 목표치입니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q9"></a></p>
+<h3 class="q"><span class="qn">Q9</span><span>더운 날 기기를 계속 차고 있으면 불편하지 않나요? 배터리는요?</span></h3>
+<p>포스터 4번에 쓴 것처럼 아직 해결되지 않은 과제입니다. 그래서 별도 기기가 아니라 <strong>이미 쓰는 안전모와 팔찌</strong>에 센서를 넣는 방향을 택했습니다. 배터리는 온디바이스 처리로 통신을 줄여 아끼는 방향을 생각하고 있지만, 이 부분은 멘토링에서 더 확인하고 싶은 지점입니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<hr />
+<h2>3. 윤리·프라이버시</h2>
+<blockquote>
+<p>가장 많이 나올 질문이자, 우리 기획의 가장 강한 부분입니다. 자신 있게 답하세요.</p>
+</blockquote>
+<p><a id="q10"></a></p>
+<h3 class="q"><span class="qn">Q10</span><span>결국 회사가 노동자를 감시하는 도구가 되지 않나요?</span></h3>
+<p>그 위험이 가장 커서, 처음부터 설계로 막았습니다.</p>
+<ol>
+<li>심박이나 체온 같은 <strong>원본 데이터는 기기 밖으로 나가지 않고</strong>, 관리자는 초록·노랑·빨강 신호만 봅니다.</li>
+<li>기록은 <strong>24시간 뒤 자동으로 지워져</strong> 쌓이지 않습니다.</li>
+</ol>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q11"></a></p>
+<h3 class="q"><span class="qn">Q11</span><span>"심박 정상이니 다시 일해"라고 악용하면요?</span></h3>
+<p>그래서 <strong>단방향 원칙</strong>을 넣었습니다. 히트 쉴드는 "쉬세요"만 말할 수 있고, "일해도 됩니다"라는 신호는 아예 만들지 않습니다. 법정 휴식은 바닥으로 두고, 그 위에 더하기만 합니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q12"></a></p>
+<h3 class="q"><span class="qn">Q12</span><span>노동자가 착용을 거부하면요? 강제인가요?</span></h3>
+<p>강제가 아니라 <strong>선택</strong>입니다. 강제하는 순간 보호 장치가 감시 장치로 보이기 때문입니다. 대신 노동자에게 이득이 분명해야 합니다. 본인이 쉬어야 할 때 쉬는 것을 정당화해 주는 근거가 되는 겁니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q13"></a></p>
+<h3 class="q"><span class="qn">Q13</span><span>휴식 횟수가 많은 사람이 인사에서 불이익을 받지 않을까요?</span></h3>
+<p>저희도 아직 완전히 풀지 못한 질문입니다. 기술적으로는 기록을 지워 쌓이지 않게 하고, 제도적으로는 "평가에 쓰지 않는다"는 약관을 기본값으로 둡니다. 기술과 제도 중 무엇을 먼저 설계해야 하는지는 멘토링 질문으로도 준비했습니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q14"></a></p>
+<h3 class="q"><span class="qn">Q14</span><span>배달 플랫폼이 이 데이터를 배차 알고리즘에 쓰면요?</span></h3>
+<p>남은 위험으로 솔직하게 인정합니다. 그래서 데이터의 주인을 플랫폼이 아니라 <strong>노동자 본인</strong>으로 두었습니다. 플랫폼에 공유할지는 본인이 정합니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<hr />
+<h2>4. 사업성·운영</h2>
+<p><a id="q15"></a></p>
+<h3 class="q"><span class="qn">Q15</span><span>누가 돈을 내나요?</span></h3>
+<p>사용자별로 다릅니다.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>대상</th>
+<th>비용 부담</th>
+<th>이유</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>건설 현장</td>
+<td>사업주</td>
+<td>온열질환 사고는 작업 중지와 중대재해 책임으로 이어져 예방 비용이 더 싸다</td>
+</tr>
+<tr>
+<td>택배·배달</td>
+<td>지자체·노동조합 보급</td>
+<td>사업주가 없는 구조</td>
+</tr>
+</tbody>
+</table></div>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q16"></a></p>
+<h3 class="q"><span class="qn">Q16</span><span>사업주가 돈을 내면서 데이터는 못 본다는데, 왜 도입하나요?</span></h3>
+<p>사업주에게 필요한 건 개인 건강 정보가 아니라 <strong>"누구를 언제 교대시켜야 하나"</strong>입니다. 신호등만으로도 교대 조정과 사고 예방이 가능합니다. 오히려 건강 정보를 보관하지 않아서 개인정보 관리 부담과 법적 위험이 줄어듭니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q17"></a></p>
+<h3 class="q"><span class="qn">Q17</span><span>쿨링 쉼터는 누가 만드나요?</span></h3>
+<p>히트 쉴드가 쉼터를 직접 짓는 것은 아닙니다. 지자체 무더위 쉼터, 현장 휴게시설, 편의점 같은 <strong>기존 공간을 연결하는 지도 역할</strong>을 합니다. 2045년 목표인 "도보 5분 안 쉼터"는 서비스 데이터로 쉼터가 부족한 곳을 찾아 지자체에 알려 주는 방식으로 달성하려고 합니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<hr />
+<h2>5. 목표 수치의 근거</h2>
+<p><a id="q18"></a></p>
+<h3 class="q"><span class="qn">Q18</span><span>50%, 90%, 5분 같은 숫자의 근거는 무엇인가요?</span></h3>
+<p>포스터 6번의 TO BE 수치는 모두 <strong>팀이 정한 목표치(가설)</strong>입니다. 근거를 물으면 먼저 그 점을 밝히고 아래 생각을 설명합니다.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>수치</th>
+<th>답변 포인트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>온열질환 50% 감소</td>
+<td>2016~2025년 환자의 45.4%가 실외 작업장·논밭에서 발생. 이 집단을 집중 보호하면 전체의 절반 가까이를 줄일 여지가 있다</td>
+</tr>
+<tr>
+<td>사망 0명</td>
+<td>온열질환은 쉬면 회복되는 병이라, 미리 알고 쉬면 막을 수 있는 죽음이라는 방향을 담은 목표</td>
+</tr>
+<tr>
+<td>위험 15분 전 알림</td>
+<td>쉼터까지 걸어가고 몸을 식히기 시작할 여유. 도보 5분 쉼터 목표와 짝</td>
+</tr>
+<tr>
+<td>예측 정확도 90% 이상</td>
+<td>지금은 현장 정확도가 검증되지 않은 한계를 인정하고, 매일 쓸 수 있는 수준을 목표로. 틀려도 본인이 쉴 수 있어 안전</td>
+</tr>
+<tr>
+<td>외부 전송 0건, 24시간 삭제</td>
+<td>미국 디지털 권리 단체 EFF가 제안한 기준(착용 선택권, 필요한 데이터만, 24시간 내 삭제)을 참고</td>
+</tr>
+<tr>
+<td>도보 5분 쉼터</td>
+<td>15분 전 알림을 받고 여유 있게 도착할 수 있는 거리</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>마무리 문장</strong>: "숫자 자체보다, 이 숫자를 어떻게 검증할지가 다음 단계입니다. 실제로는 한 현장에서 도입 전후 온열질환 증상 보고 수를 비교하는 시범 운영부터 시작할 수 있습니다."</p>
+</blockquote>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<hr />
+<h2>6. 까다로운 질문</h2>
+<p><a id="q19"></a></p>
+<h3 class="q"><span class="qn">Q19</span><span>2045년이면 20년 뒤인데, 그때도 폭염이 문제일까요?</span></h3>
+<p>오히려 더 커질 가능성이 높습니다. 2025년 여름은 환자 <strong>4,460명</strong>으로 집계 이후 두 번째로 많았고, 전년보다 <strong>20.4%</strong> 늘었습니다. 고령화로 야외에서 일하는 고령 노동자도 늘어날 것으로 보입니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q20"></a></p>
+<h3 class="q"><span class="qn">Q20</span><span>이 아이디어의 가장 큰 약점은 무엇이라고 생각하나요?</span></h3>
+<p>약점을 숨기지 말고 하나를 또렷하게 말합니다.</p>
+<blockquote>
+<p>"현장 정확도입니다. 그래서 기계가 틀려도 사람이 다치지 않도록, 휴식을 막는 기능을 아예 빼는 쪽으로 설계했습니다."</p>
+</blockquote>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<p><a id="q21"></a></p>
+<h3 class="q"><span class="qn">Q21</span><span>기술 대신 법과 제도를 바꾸는 게 더 빠르지 않나요?</span></h3>
+<p>둘 다 필요하다고 봅니다. <strong>법은 모두에게 같은 최소 기준</strong>을 만들고, <strong>기술은 그 위에 사람마다 다른 위험</strong>을 채웁니다. 실제로 휴식 의무화 규정도 도입까지 규제 심사에서 두 차례 재검토를 거쳐 시간이 걸렸습니다.</p>
+<p class="back"><a href="#top">↑ 목록으로</a></p>
+
+<h3>답을 모를 때 쓸 문장</h3>
+<ul>
+<li>"좋은 지적입니다. 저희가 아직 깊이 다루지 못한 부분인데, 다음 단계에서 확인해 보겠습니다."</li>
+<li>"정확한 수치는 지금 답하기 어렵지만, 저희 생각의 방향은 ~입니다."</li>
+<li>질문이 길고 복잡하면: "질문을 제대로 이해했는지 확인하면, ~라는 말씀이시죠?"로 한 번 정리하고 답합니다.</li>
+</ul>
+<hr />
+<h2>출처</h2>
+<ul>
+<li><a href="https://www.kdca.go.kr/bbs/kdca/42/215434/artclView.do" target="_blank" rel="noopener">질병관리청, 2025년 온열질환 응급실감시체계 운영 결과</a></li>
+<li><a href="https://m.thesegye.com/news/view/1065579807126610" target="_blank" rel="noopener">세계일보, 최근 10년 온열질환자 발생 장소</a></li>
+<li><a href="https://www.newsis.com/view/NISX20250715_0003252520" target="_blank" rel="noopener">뉴시스, 폭염 시 2시간마다 20분 휴식 의무화</a></li>
+<li><a href="https://www.newdaily.co.kr/site/data/html/2025/07/11/2025071100179.html" target="_blank" rel="noopener">뉴데일리, 휴식 의무화와 특수고용 노동자</a></li>
+<li><a href="https://bizhankook.com/articles/29986.html" target="_blank" rel="noopener">비즈한국, 규제개혁위원회 재검토</a></li>
+<li><a href="https://abcnews.go.com/Health/wireStory/sensors-read-sweat-predict-overheating-privacy-advocates-care-113119851" target="_blank" rel="noopener">AP, Sensors can read your sweat and predict overheating</a></li>
+</ul>
+</main>
+</body>
+</html>
